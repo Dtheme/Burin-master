@@ -1,6 +1,6 @@
 # Burin
 
-iOS reverse development，command line utils thats uses Cycript.
+iOS reverse development，command line utils that uses Cycript.
 
 ### 为什么要写Burin
 
