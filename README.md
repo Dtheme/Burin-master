@@ -37,4 +37,6 @@ cy# lookUpBundleId
 
 ### 最后
 
-更多关于cycript的问题可以看：[Cycript](http://www.cycript.org)。Read Manual里面有你想要的一切关于cycript的使用方法。
+更多关于cycript的问题可以看：[Cycript](http://www.cycript.org)。
+
+[Read Manual](http://www.cycript.org/manual/)里面有你想要的一切关于cycript的使用方法。
