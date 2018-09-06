@@ -6,9 +6,7 @@ iOS reverse development，command line utils that uses Cycript.
 
 通过逆向的方式可以窥探和猜测别人的APP对于某些功能的实现方式，从而对自己的开发过程提供一些借鉴，使用Cycript脚本可以帮助理解别人的app。Cycript非常强大， 它是一个能够理解Objective-C语法的javascript解释器，但是在使用过程中发现经常会做一些重复的操作，写一些重复代码，不仅麻烦而且稍微不注意就容易出现拼写大小写等错误，效率比较低，没有代码补全的情况下写OC代码有多痛苦，写过的人都知道。
 
-例如：
-
-获取沙盒document路径这样的代码，得背API：
+例如：获取沙盒document路径这样的代码，得背API：
 
 ```objective-c
 NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
