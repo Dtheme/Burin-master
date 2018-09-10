@@ -13,16 +13,16 @@
 	lookUpCachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]; 
 
     //调试用的颜色
-    redColor = function(){
-        return [UIColor redColor];
+    redColor = function(view)){
+        return view.backgroundColor = [UIColor redColor];
     }
 
-    blackColor = function(){
-        return [UIColor blackColor];
+    blackColor = function(view){
+        return view.backgroundColor = [UIColor blackColor];
     }
 
-    whiteColor = (){
-        return [UIColor whiteColor];
+    whiteColor = (view){
+        return view.backgroundColor = [UIColor whiteColor];
     }
     
     //隐藏显示 willhidden传 YES/NO （oc语法）
@@ -73,13 +73,14 @@
     };
    
     //控制器层级结构
-    lookupVCSubviews = function(vc) { 
+    lookupSubViewcontrollers = function(vc) { 
 		if (![vc isKindOfClass:[UIViewController class]]) throw new Error(invalidParamStr);
 		return vc.view.recursiveDescription().toString(); 
     };
     
+	
     //view的层级结构
-	lookupViewSubviews = function(view) { 
+	lookupSubviews = function(view) { 
 		if (![view isKindOfClass:[UIView class]]) throw new Error(invalidParamStr);
 		return view.recursiveDescription().toString(); 
     };
@@ -94,7 +95,7 @@
 		return className.class();
 	};
 
-	// 打印所有的子类
+	// 查看所有的子类
 	lookUpSubclasses = function(className, reg) {
 		className = ClassInfo(className);
 
@@ -106,7 +107,7 @@
 			];
 	};
 
-	// 打印所有的方法
+	// 查看所有的方法
 	var GetMethods = function(className, reg, clazz) {
 		className = ClassInfo(className);
 
@@ -134,32 +135,32 @@
 		return GetMethods(className, reg, clazz)[0];
 	};
 
-	// 查询方法名
+	// 查看方法名
 	var getMethodNames = function(className, reg, clazz) {
 		return GetMethods(className, reg, clazz)[1];
 	};
 
-	// 查询实例方法信息
+	// 查看实例方法信息
 	lookUpInstanceMethods = function(className, reg) {
 		return MethodsInfo(className, reg);
 	};
 
-	// 查询实例方法名字
+	// 查看实例方法名字
 	lookUpInstanceMethodNames = function(className, reg) {
 		return getMethodNames(className, reg);
 	};
 
-	// 打印所有的类方法
+	// 查看所有的类方法
 	lookUpClassMethods = function(className, reg) {
 		return MethodsInfo(className, reg, true);
 	};
 
-	// 打印所有的类方法名字
+	// 查看所有的类方法名字
 	lookUpClassMethodNames = function(className, reg) {
 		return getMethodNames(className, reg, true);
 	};
 
-	// 打印所有的成员变量
+	// 查看所有的成员变量
 	lookUpIvars = function(obj, reg){ 
 		if (!obj) throw new Error(missingParamStr);
 		var x = {}; 
@@ -173,7 +174,7 @@
 		return x; 
 	};
 
-	// 打印所有的成员变量名字
+	// 查看所有的成员变量名字
 	lookUpIvarNames = function(obj, reg) {
 		if (!obj) throw new Error(missingParamStr);
 		var array = [];
