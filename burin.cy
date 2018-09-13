@@ -1,16 +1,16 @@
 (function(exports){
 
     //当前调试的APP的bundle ID
-    lookUpBundleId = [NSBundle mainBundle].bundleIdentifier;
+    BRBundleId = [NSBundle mainBundle].bundleIdentifier;
 
     // 沙盒路径
-	lookUpMainBundlePath = [NSBundle mainBundle].bundlePath;
+	BRMainBundlePath = [NSBundle mainBundle].bundlePath;
 
 	// 沙盒 document 
-	lookUpDocumentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+	BRDocumentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
 
 	// 沙盒 caches 
-	lookUpCachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]; 
+	BRCachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]; 
 
     //调试用的颜色
     redColor = function(view)){
@@ -44,7 +44,7 @@
     };
     
 	// 根控制器
-    lookUpKeyWindow = function() {
+    BRKeyWindow = function() {
 		return UIApp.keyWindow;
     };
     
@@ -68,19 +68,19 @@
 	        return vc;
     	}
     };
-    lookUpFrontVc = function() {
+    BRFrontVc = function() {
 		return _FrontVc(UIApp.keyWindow.rootViewController);
     };
    
     //控制器层级结构
-    lookupSubViewcontrollers = function(vc) { 
+    BRSubViewcontrollers = function(vc) { 
 		if (![vc isKindOfClass:[UIViewController class]]) throw new Error(invalidParamStr);
 		return vc.view.recursiveDescription().toString(); 
     };
     
 	
     //view的层级结构
-	lookupSubviews = function(view) { 
+	BRSubviews = function(view) { 
 		if (![view isKindOfClass:[UIView class]]) throw new Error(invalidParamStr);
 		return view.recursiveDescription().toString(); 
     };
@@ -96,7 +96,7 @@
 	};
 
 	// 查看所有的子类
-	lookUpSubclasses = function(className, reg) {
+	BRSubclasses = function(className, reg) {
 		className = ClassInfo(className);
 
 		return [c for each (c in ObjectiveC.classes) 
@@ -141,27 +141,27 @@
 	};
 
 	// 查看实例方法信息
-	lookUpInstanceMethods = function(className, reg) {
+	BRInstanceMethods = function(className, reg) {
 		return MethodsInfo(className, reg);
 	};
 
 	// 查看实例方法名字
-	lookUpInstanceMethodNames = function(className, reg) {
+	BRInstanceMethodNames = function(className, reg) {
 		return getMethodNames(className, reg);
 	};
 
 	// 查看所有的类方法
-	lookUpClassMethods = function(className, reg) {
+	BRClassMethods = function(className, reg) {
 		return MethodsInfo(className, reg, true);
 	};
 
 	// 查看所有的类方法名字
-	lookUpClassMethodNames = function(className, reg) {
+	BRClassMethodNames = function(className, reg) {
 		return getMethodNames(className, reg, true);
 	};
 
 	// 查看所有的成员变量
-	lookUpIvars = function(obj, reg){ 
+	BRIvars = function(obj, reg){ 
 		if (!obj) throw new Error(missingParamStr);
 		var x = {}; 
 		for(var i in *obj) { 
@@ -175,7 +175,7 @@
 	};
 
 	// 查看所有的成员变量名字
-	lookUpIvarNames = function(obj, reg) {
+	BRIvarNames = function(obj, reg) {
 		if (!obj) throw new Error(missingParamStr);
 		var array = [];
 		for(var name in *obj) { 
