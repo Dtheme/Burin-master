@@ -31,7 +31,7 @@ cy# @import ../<path>/Burin
 直接调用定义的方法进行调试：
 
 ```js
-cy# lookUpBundleId
+cy# BRBundleId
 @"com.xxx.xxx"
 ```
 
