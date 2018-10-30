@@ -12,26 +12,6 @@
 	// 沙盒 caches 
 	BRCachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0]; 
 
-	// 在控制台使用log eg：NSLog("value: %@", value)
-	BRLog = function(){
-	 	var types = ‘v’, 
-		args = [], 
-		count = arguments.length; 
-		for (var i = 0; i != count; ++i) {
-			 types += ‘@’; args.push(arguments[i]); 
-		}
-		new Functor(NSLog_, types).apply(null, args); 
-	}
-	NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
-
-	//打印当前runloop信息
-	BRRunLoopDescrip = NSRunLoop.messages['description']
-	NSRunLoop.messages[‘description’] = function() {
-		 return original_NSRunLoop_description.call(this).toString().substr(0, 80)+”, etc.”; 
-	}
-
-
-
     //调试用的颜色
     redColor = function(view)){
         return view.backgroundColor = [UIColor redColor];
@@ -204,4 +184,23 @@
 		}
 		return array;
 	};
+
+	// 在控制台使用log eg：NSLog("value: %@", value)
+	NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
+	NSLog = function(){
+	 	var types = ‘v’, 
+		args = [], 
+		count = arguments.length; 
+		for (var i = 0; i != count; ++i) {
+			 types += ‘@’; args.push(arguments[i]); 
+		}
+		new Functor(NSLog_, types).apply(null, args); 
+	}
+
+
+	//打印当前runloop信息
+	BRRunLoopDescrip = NSRunLoop.messages['description']
+	NSRunLoop.messages[‘description’] = function() {
+		 return original_NSRunLoop_description.call(this).toString().substr(0, 80)+”, etc.”; 
+	}
 })(exports);
