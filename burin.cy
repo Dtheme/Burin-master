@@ -1,5 +1,10 @@
 (function(exports){
 
+	help = function(){
+
+	}
+
+
     //当前调试的APP的bundle ID
     BRBundleId = [NSBundle mainBundle].bundleIdentifier;
 
@@ -188,11 +193,11 @@
 	// 在控制台使用log eg：NSLog("value: %@", value)
 	NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
 	NSLog = function(){
-	 	var types = ‘v’, 
+	 	var types = 'v', 
 		args = [], 
 		count = arguments.length; 
 		for (var i = 0; i != count; ++i) {
-			 types += ‘@’; args.push(arguments[i]); 
+			 types += '@'; args.push(arguments[i]); 
 		}
 		new Functor(NSLog_, types).apply(null, args); 
 	}
