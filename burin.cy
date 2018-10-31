@@ -1,7 +1,34 @@
 (function(exports){
 
+	//帮助文档
 	help = function(){
-
+		return {
+			"指令：功能",
+			"BRBundleId" : "当前调试的APP的bundle ID",
+			"BRMainBundlePath" : "",
+			"BRDocumentPath":"",
+			"BRCachesPath":"",
+			"redColor('view')":"调试：view为red",
+			"blackColor('view')":"调试：view为black",
+			"whiteColor('view')":"调试：view为white",
+			"hiddenOrNot(view,willHidden)":"是否隐藏view",
+			"CGPointMake(x,y)":"构造一个CGPoint",
+			"CGSizeMake(w,h)":"构造一个CGSize",
+			"CGRect(x,y,w,h)":"构造一个CGRect",
+			"BRKeyWindow":"打印根控制器",
+			"BRFrontVc":"打印当前控制器",
+			"BRSubViewcontrollers":"打印控制器层级结构",
+			"BRSubclasses(vc)":"打印vc子类",
+			"GetMethods":"查看所有的方法",
+			"getMethodNames":"获取所有方法名",
+			"NSLog":"正常使用NSLog",
+			"BRRunLoopDescrip":"打印当前runloop信息",
+			"BRInstanceMethodNames":"查看所有实例方法",
+			"BRClassMethods","查看所有类方法",
+			"BRClassMethodNames","查看所有类方法名",
+			"BRIvars":"查看所有实例变量",
+			"BRIvarNames":"查看所有实例变量名"
+		}
 	}
 
 
@@ -191,7 +218,6 @@
 	};
 
 	// 在控制台使用log eg：NSLog("value: %@", value)
-	NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
 	NSLog = function(){
 	 	var types = 'v', 
 		args = [], 
@@ -201,7 +227,7 @@
 		}
 		new Functor(NSLog_, types).apply(null, args); 
 	}
-
+	NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
 
 	//打印当前runloop信息
 	BRRunLoopDescrip = NSRunLoop.messages['description']
