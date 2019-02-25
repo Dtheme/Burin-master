@@ -18,7 +18,7 @@ NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[
 
 越狱环境下可以直接将Burin文件注入到iPhone里。非越狱环境下可以通过重签名、重新打包ipa，通过动态库的方式注入。
 
-顺口一提，截止到目前，官方给出的数据是85%的用户在使用iOS 11，10%用户使用iOS 10，而iOS 11目前暂时还没有完美越狱，完美越狱变得越来越有难度，[这里是Apple support数据。](https://developer.apple.com/support/app-store/)（这话刚说完不到1个月，iOS 12正式版刚出来就被阿里安全实验室完美越狱...不过现在iOS版本反人类设计少了很多，对越狱没有刚需了）
+顺口一提，截止到目前，官方给出的数据是85%的用户在使用iOS 11，10%用户使用iOS 10，而iOS 11目前暂时还没有完美越狱，完美越狱变得越来越有难度，[这里是Apple support数据。](https://developer.apple.com/support/app-store/)（这话刚说完不到1个月，iOS 12正式版刚出来就被阿里安全实验室完美越狱...不过现在iOS版本反人类设计少了很多，对越狱没有刚需了，目前比较需要越狱的点可能在电话录音，改主题，跨区下载等方面）
 
 
 
